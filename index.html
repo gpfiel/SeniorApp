@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <title>Previsão do tempo</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://raw.githubusercontent.com/gionkunz/chartist-js/develop/dist/chartist.min.css" rel="stylesheet">
+
+    <!-- Estilo -->
+    <link href="css/estilo.css" rel="stylesheet">
+    <link href="css/chartlist.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container-fluid no-padding">
+      <!-- Início Topo -->
+      <div class="row topo">
+        <div class="col-lg-7 col-md-5 col-sm-5 col-xs-12">
+          <h1 class="titulo">Previsão do tempo</h1>
+        </div>
+        <div class="col-lg-5 col-md-7 col-sm-7 col-xs-12 localidade">
+
+          <form class="form-inline">
+            <div class="form-group">
+              <select id="estado" class="form-control">
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select id="cidade" class="form-control select-max-width">
+              </select>
+            </div>
+            <a id="pesquisa" class="btn btn-info glyphicon glyphicon-search"></a>
+          </form>
+        </div>
+      </div>
+      <!-- Fim Topo -->
+      
+      <!-- Início conteúdo -->
+
+      <div class="row">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+          <div class="alert alert-danger erro-cidade" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error</span>
+            Por favor, selecione uma cidade ;) 
+          </div>
+          <h1 class="page-header">Próximos dias em <span class="cidade-atual text-info"></span></h1>
+          <div class="row">
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">Hoje é <span class="dia-atual text-info"></span></div>
+                <div class="panel-body">
+                  <h2 class="desc-atual text-info"></h2>
+                  <a href="#" class="thumbnail">
+                    <img class="imagem-atual" src="" title="">
+                  </a>
+                  <table class="table text-info">
+                      <tr>
+                        <td>Temperatura atual é </td>
+                        <td><span class="text-danger temperatura temperatura-atual"></span></td>
+                        <td><span class="glyphicon glyphicon-dashboard text-danger img-help" aria-hidden="true"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Máxima</td>
+                        <td><span class="text-danger temperatura temperatura-maxima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-upload text-warning img-help" aria-hidden="true"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Mínima</td>
+                        <td><span class="text-danger temperatura temperatura-minima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-download text-info img-help" aria-hidden="true"></span></td>
+                      </tr>
+                  </table> 
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <div class="panel panel-default box-holder-1">
+                <div class="panel-heading text-info cx-dia-1"></div>
+                <div class="panel-body">
+                  <h2 class="desc-atual resize-title text-info"></h2>
+                  <a href="#" class="thumbnail">
+                    <img class="imagem-atual" src="" title="">
+                  </a>
+                  <table class="table text-info"> 
+                      <tr>
+                        <td>Máxima</td>
+                        <td><span class="text-danger temperatura temperatura-maxima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-upload text-warning img-help" aria-hidden="true"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Mínima</td>
+                        <td><span class="text-danger temperatura temperatura-minima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-download text-info img-help" aria-hidden="true"></span></td>
+                      </tr>
+                  </table> 
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <div class="panel panel-default box-holder-2">
+                <div class="panel-heading text-info cx-dia-2"></div>
+                <div class="panel-body">
+                  <h2 class="desc-atual resize-title text-info"></h2>
+                  <a href="#" class="thumbnail">
+                    <img class="imagem-atual" src="" title="">
+                  </a>
+                  <table class="table text-info"> 
+                      <tr>
+                        <td>Máxima</td>
+                        <td><span class="text-danger temperatura temperatura-maxima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-upload text-warning img-help" aria-hidden="true"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Mínima</td>
+                        <td><span class="text-danger temperatura temperatura-minima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-download text-info img-help" aria-hidden="true"></span></td>
+                      </tr>
+                  </table> 
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <div class="panel panel-default box-holder-3">
+                <div class="panel-heading text-info cx-dia-3"></div>
+                <div class="panel-body">
+                  <h2 class="desc-atual resize-title text-info"></h2>
+                  <a href="#" class="thumbnail">
+                    <img class="imagem-atual" src="" title="">
+                  </a>
+                  <table class="table text-info">
+                      <tr>
+                        <td>Máxima</td>
+                        <td><span class="text-danger temperatura temperatura-maxima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-upload text-warning img-help" aria-hidden="true"></span></td>
+                      </tr> 
+                      <tr>
+                        <td>Mínima</td>
+                        <td><span class="text-danger temperatura temperatura-minima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-download text-info img-help" aria-hidden="true"></span></td>
+                      </tr>
+                  </table> 
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <div class="panel panel-default box-holder-4">
+                <div class="panel-heading cx-dia-4"></div>
+                <div class="panel-body">
+                  <h2 class="desc-atual resize-title text-info"></h2>
+                  <a href="#" class="thumbnail">
+                    <img class="imagem-atual" src="" title="">
+                  </a>
+                  <table class="table text-info"> 
+                      <tr>
+                        <td>Máxima</td>
+                        <td><span class="text-danger temperatura temperatura-maxima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-upload text-warning img-help" aria-hidden="true"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Mínima</td>
+                        <td><span class="text-danger temperatura temperatura-minima-atual"></span> </td>
+                        <td><span class="glyphicon glyphicon-download text-info img-help" aria-hidden="true"></span></td>
+                      </tr>
+                  </table> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1 class="page-header">Outras informações</h1>
+            <div class="row">
+
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">Temperatura máxima e mínima do período</div>
+                <div class="panel-body">
+                  <table class="table text-info"> 
+                      <tr>
+                        <td class="no-border-top">Máxima</td>
+                        <td class="no-border-top"><span class="text-danger temperatura temperatura-maxima-periodo"></span> </td>
+                        <td class="no-border-top"><span class="glyphicon glyphicon-upload text-warning img-help" aria-hidden="true"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Mínima</td>
+                        <td><span class="text-danger temperatura temperatura-minima-periodo"></span> </td>
+                        <td><span class="glyphicon glyphicon-download text-info img-help" aria-hidden="true"></span></td>
+                      </tr>
+                  </table> 
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">Recomendação de Praia</div>
+                <div class="panel-body sol">
+                  <p class="text-center"> 
+                    O clima amanhã terá uma temperatura agradável, praia? &nbsp;
+                    <span class="glyphicon glyphicon-sunglasses img-help" aria-hidden="true"></span>
+                  </p>
+                  <a href="#" class="thumbnail">
+                    <img src="" title=""/>
+                  </a> 
+                </div>
+                <div class="panel-body chuva">
+                  <p class="text-center"> 
+                    O clima amanhã não será legal ;( &nbsp;
+                    <span class="glyphicon glyphicon-tint text-info img-help" aria-hidden="true"></span>?
+                  </p>
+                  <a href="#" class="thumbnail">
+                    <img src="" title=""/>
+                  </a> 
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">Evolução/Variação da temperatura</div>
+                <div class="panel-body">
+                  <div class="ct-chart"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- Fim Conteúdo -->
+    </div>
+
+    <!-- Bouncer -->
+    <div class="backdrop">
+      <div class="spinner animated bounce">
+        <span class="glyphicon glyphicon-cloud"></span>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/chartlist.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/cidades-estados-1.4-utf8.js"></script>
+    <script src="js/seniorApp.js"></script>
+
+    
+  </body>
+</html>
